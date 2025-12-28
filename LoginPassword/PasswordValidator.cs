@@ -12,6 +12,8 @@ namespace LoginPassword
         {
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentException("Password cannot be null or empty.");
+            if (password.Contains(" "))
+                throw new ArgumentException("Password must not contain spaces.");
             if (password.Length < 8)
                 throw new ArgumentException("Password must be at least 8 characters long.");
             if (!password.Any(char.IsUpper))
